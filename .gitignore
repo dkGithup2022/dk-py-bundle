@@ -1,0 +1,7 @@
+.DS_Store
+*.log
+.idea/
+.vscode/
+
+# autoresearch 산출물 (설계 과정 기록, 공개 제외)
+reason/

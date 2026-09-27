@@ -1,0 +1,17 @@
+{
+  "name": "dk-py-bundle",
+  "version": "0.1.0",
+  "description": "Backend skill bundle for FastAPI + SQLAlchemy 2.0 + Python 3.12 + Hexagonal Architecture (uv workspace). Includes assess/add pipeline and test scaffolding orchestrated by be-planner.",
+  "author": {
+    "name": "dankim0124",
+    "email": "dankim0124@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "backend",
+    "fastapi",
+    "sqlalchemy",
+    "hexagonal-architecture",
+    "uv-workspace"
+  ]
+}

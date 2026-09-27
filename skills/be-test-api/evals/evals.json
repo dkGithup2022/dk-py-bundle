@@ -1,0 +1,60 @@
+{
+  "skill_name": "be-test-api",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "notification_router",
+      "expected_output": "test_notification_router.py — 6 핸들러 × 정상/예외 TC, unittest.mock 단위 테스트, 전체 PASS",
+      "assertions": [
+        {
+          "name": "수집 성공",
+          "check": "uv run pytest --collect-only 가 import 에러 없이 테스트를 수집하는가"
+        },
+        {
+          "name": "전체 테스트 PASS",
+          "check": "모든 테스트 케이스가 GREEN인가"
+        },
+        {
+          "name": "Phase 1 호출 방식 확인",
+          "check": "직접 호출 가능 여부를 확인하고 산출물에 '직접 호출 / TestClient' 를 명시했는가"
+        },
+        {
+          "name": "Phase 2 산출물 제시",
+          "check": "Phase 2에서 Mock 의존성 + 핸들러별 TC 표를 유저에게 보여주고 확인을 받았는가"
+        },
+        {
+          "name": "정상 경로 커버리지",
+          "check": "모든 핸들러(6개)에 정상 경로 TC가 있는가"
+        },
+        {
+          "name": "예외 경로 커버리지",
+          "check": "Usecase 가 던지는 NotificationNotFoundException에 대한 예외 TC가 있는가"
+        },
+        {
+          "name": "예외 검증 패턴 준수",
+          "check": "예외 TC에서 pytest.raises + ei.value.http_status_code + http_error_message 를 검증하는가"
+        },
+        {
+          "name": "Command 변환 검증",
+          "check": "쓰기 핸들러 TC 에서 call_args 로 request_user_id 와 list → tuple 변환을 확인하는가"
+        },
+        {
+          "name": "선언 상태 코드 검증",
+          "check": "201/204 핸들러에 대해 라우트 메타 또는 Response.status_code 로 상태 코드를 확인하는가"
+        },
+        {
+          "name": "컨텍스트 미사용",
+          "check": "TestClient, dishka 컨테이너, DB 픽스처를 쓰지 않고 Mock(spec=...) 만 사용하는가"
+        },
+        {
+          "name": "네이밍 컨벤션",
+          "check": "test_should_예상결과_when_조건 패턴을 따르는가"
+        },
+        {
+          "name": "given-when-then 구조",
+          "check": "각 테스트에 # given, # when, # then 구분이 있는가"
+        }
+      ]
+    }
+  ]
+}
